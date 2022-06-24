@@ -1,0 +1,146 @@
+@import "../../styles/_breakpoint";
+@import "../../styles/_mixin";
+.header{
+    position:fixed;
+    top:0;
+    right:0;
+    left:0;
+    overflow:hidden;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    z-index: 999;
+    .logoBx{
+        float:left;
+    }
+    .toCart{
+        float:right;
+        .cartIcon{
+            width: 35px;
+            height: 35px;
+            color: #000;
+        }
+    }
+}
+.kv{
+    width:100%;
+    overflow:hidden;
+    .left{
+        float:left;
+        width:50%;
+        height:100vh;
+        position:relative;
+        @include mq(tab){
+            width:35%;
+            height: 100vh;
+        }
+        @include mq(sp){
+            width:35%;
+            height: 100vh;
+        }
+        .copyBx{
+            position: absolute;
+            z-index: 999;
+            @include mq(pc){
+                top: 50%;
+                left: 35%;
+                transform: translateY(-50%) translateX(-50%);
+                -webkit-transform: translateY(-50%) translateX(-50%);
+            }
+            @include mq(tab){
+                width: 200%;
+                bottom: 50px;
+                left: 50px;
+            }
+            @include mq(sp){
+                width: 200%;
+                bottom: 50px;
+                left: 50px;
+            }
+            h1{
+                font-size: 4.5vw;
+                letter-spacing: .2rem;
+                margin: 0;
+                font-family: 'Paytone One', sans-serif;
+                line-height: 1;
+                @include mq(tab){
+                    font-size: 9vw;
+                }
+                @include mq(sp){
+                    font-size: 9vw;
+                }
+            }
+            p{
+                margin:0;
+                font-weight: bold;
+                margin-top: 2vw;
+            }
+            .btn{
+                width:300px;
+                background: #fbd45b;
+                border-radius: 30px;
+                margin-top: 1.5vw;
+                a{
+                    width:100%;
+                    padding: 10px 0;
+                    color:#fff;
+                    font-weight:bold;
+                    text-align: center;
+                    display: block;
+                }
+                @include mq(tab){
+                    border: 1px solid rgb(247, 239, 185);
+                    box-sizing: border-box;
+                }
+                @include mq(sp){
+                    border: 1px solid rgb(247, 239, 185);
+                    box-sizing: border-box;
+                }
+                &:hover{
+                    cursor:pointer;
+                    opacity:0.7;
+                }
+            }
+        }
+    }
+    .right{
+        float:right;
+        background: #fbd45b;
+        width:50%;
+        height:100vh;
+        @include mq(tab){
+            width: 65%;
+            height: 100vh;
+        }
+        @include mq(sp){
+            width: 65%;
+            height: 100vh;
+        }
+        p{
+            transform: rotate( -90deg );
+            font-size: 260px;
+            font-weight: bold;
+            position: absolute;
+            right: -225px;
+            margin: 0;
+            bottom: 290px;
+            color: #fff;
+            opacity: 0.2;
+        }
+    }
+    .imagesBx{
+        width: 35%;
+        height: 40vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        -webkit-transform: translateY(-50%) translateX(-50%);
+        @include mq(tab){
+            width: 50%;
+        }
+        @include mq(sp){
+            width: 100%;
+            height: 50vw;
+        }
+    }
+}

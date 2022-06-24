@@ -30,3 +30,14 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# XDG Base Directory
+.config
+# env
+.env*
+# Firebase
+.firebase/
+firebaseApp.js
+
+# functions(api)
+functions/serviceAccountKey.json
