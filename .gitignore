@@ -35,9 +35,7 @@ yarn-error.log*
 .config
 # env
 .env*
-# Firebase
-.firebase/
-firebaseApp.js
+
 
 # functions(api)
 functions/serviceAccountKey.json
