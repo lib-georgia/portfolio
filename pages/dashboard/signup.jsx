@@ -1,6 +1,6 @@
 import React,{useState,useCallback} from 'react'
 import TextBox from '../../components/Uikit/TextBox';
-import { db, FirebaseApp } from "../../firebaseApp";
+import { db } from "../../firebaseApp";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Router from 'next/router'
 import Image from 'next/image'
@@ -20,7 +20,8 @@ const SignUp = () => {
     const inputConfirmPassword = useCallback((event) => { setConfirmPassword(event.target.value) }, [setConfirmPassword]);
     
   const toSignUp = (name,email,password,confirmPassword) => {
-    const auth = getAuth(FirebaseApp);
+    // const auth = getAuth(FirebaseApp);
+    const auth = getAuth();
     if (name === "" || email === "" || password === "" || confirmPassword === "") {
         alert("必須項目が未入力です。")
         return false
@@ -35,9 +36,6 @@ const SignUp = () => {
     }
  createUserWithEmailAndPassword(auth,email, password).then(async(userCredential) => {
    const user = userCredential.user;
-   alert(user.uid)
-   alert(name)
-   alert(email)
    if (user.uid) {
     db.collection("user").doc(user.uid).set({
       name: name,
