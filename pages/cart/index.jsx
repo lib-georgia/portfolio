@@ -154,6 +154,7 @@ const Cart = () => {
         const stripe = useStripe();
         const elements = useElements();
         const handleSubmit = async event => {
+            console.log('handleSubmit')
             event.preventDefault();
             const { error, paymentMethod } = await stripe.createPaymentMethod({
                 type: "card",
@@ -197,7 +198,7 @@ const Cart = () => {
             <button type="submit" disabled={!stripe} style={style}>購入</button>
             </form>
     }
-
+    console.log(paymentLoad)
     return (
         <>
             <Head>
