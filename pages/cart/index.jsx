@@ -163,6 +163,7 @@ const Cart = () => {
             });
             console.log('end')
             setPaymentLoad(true)
+            console.log('error',error)
             if (!error) {
                 const { id } = paymentMethod;
                 try {
