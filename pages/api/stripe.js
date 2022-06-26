@@ -12,8 +12,6 @@ export default async function handler(req, res){
       payment_method: id,
       confirm: true
     });
-
-
     return res.status(200).json({
       confirm: "completed"
     });

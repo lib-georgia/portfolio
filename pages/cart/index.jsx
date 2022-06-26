@@ -202,6 +202,7 @@ const Cart = () => {
             </form>
     }
     console.log(paymentLoad)
+    console.log(`${process.env.NEXT_PUBLIC_PAYMENT_API_URL}`)
     return (
         <>
             <Head>
