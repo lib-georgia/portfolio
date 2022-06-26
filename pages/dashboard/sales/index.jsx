@@ -7,7 +7,6 @@ import { Doughnut } from 'react-chartjs-2';
 import "chartjs-plugin-doughnut-innertext";
 import { DashboardLayout,SearchSalesData } from '../../../components'
 
-
 const Sales = ({ allProduct,hamburger,setMenu,sideMenu,drink,monthAllProduct,monthHamburger,monthSetMenu,monthSideMenu,monthDrink }) => {
 
     const [todaySales, setTodaySales] = useState(true);

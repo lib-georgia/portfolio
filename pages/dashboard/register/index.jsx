@@ -145,66 +145,66 @@ const Register = () => {
 
     return (
         <DashboardLayout>
-                <div className={Styles.inner}>
-                    <h2>商品登録</h2>
-                    <div className={Styles.left}>
+            <div className={Styles.inner}>
+                <h2>商品登録</h2>
+                <div className={Styles.left}>
+                    {(() => {
+                        if (categoryName === 'drink') {
+                            return <div className={Styles.notSetImagesBx}><p>ドリンクメニュ―は画像登録できません。</p></div>
+                        } else {
+                            return <>
+                                {thumbnail ?
+                                      <>
+                                          <div className={Styles.setImagesBx}>
+                                              <span>
+                                                  <Image src={thumbnail} alt={"A thumbnail of the question"} layout="fill" objectFit="contain" priority={true} />
+                                              </span>
+                                          </div>
+                                          <div className={Styles.Register_images_bx}>
+                                              <span onClick={() => deleteStorage()}>
+                                                  <AddPhotoAlternateIcon />削除
+                                              </span>
+                                          </div>
+                                      </> :
+                                      <>
+                                          <div className={Styles.setImagesBx}>
+                                              <span>
+                                                  <Image src={noImage} alt={"A thumbnail of the question"} layout="fill" objectFit="contain" priority={true} />
+                                              </span>
+                                          </div>
+                                          <div className={Styles.Register_images_bx}>
+                                              <label>
+                                                  <input type="file" name="file" onChange={onChange} /><AddPhotoAlternateIcon />商品画像を登録
+                                              </label>
+                                          </div>
+                                    </>
+                                }                         
+                            </>
+                        }
+                    })()}
+                </div>
+                <div className={Styles.right}>
+                    <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '25ch' }, }} noValidate autoComplete="off">
+                        <div className={Styles.input}>
+                            <TextBox fullWidth={true} label={"商品名"} multiline={false} required={true} onChange={inputName} rows={1} value={name} type={"text"} />
+                        </div>
+                        <div className={Styles.input}>
+                            <SelectBox label={"カテゴリ―"} required={true} options={categories} select={setCategory} value={category} />
+                        </div>
+                        <div className={Styles.input}>
+                            <TextBox fullWidth={true} label={"価格（税込み）"} multiline={false} required={true} onChange={inputPrice} rows={1} value={price} type={"text"} />
+                            {priceValidation ? <></> : <span className={Styles.validation}>半角数字で入力してください。</span>}
+                        </div>
                         {(() => {
-                            if (categoryName === 'drink') {
-                                return <div className={Styles.notSetImagesBx}><p>ドリンクメニュ―は画像登録できません。</p></div>
+                            if (category === 'drink') {
+                                return <>{registerBx ? <div className={Styles.registerBtn} onClick={() => registerBtn(name,categoryName,price)}>登録</div> : <></>}</>
                             } else {
-                                return <>
-                                    {thumbnail ?
-                                          <>
-                                              <div className={Styles.setImagesBx}>
-                                                  <span>
-                                                      <Image src={thumbnail} alt={"A thumbnail of the question"} layout="fill" objectFit="contain" priority={true} />
-                                                  </span>
-                                              </div>
-                                              <div className={Styles.Register_images_bx}>
-                                                  <span onClick={() => deleteStorage()}>
-                                                      <AddPhotoAlternateIcon />削除
-                                                  </span>
-                                              </div>
-                                          </> :
-                                          <>
-                                              <div className={Styles.setImagesBx}>
-                                                  <span>
-                                                      <Image src={noImage} alt={"A thumbnail of the question"} layout="fill" objectFit="contain" priority={true} />
-                                                  </span>
-                                              </div>
-                                              <div className={Styles.Register_images_bx}>
-                                                  <label>
-                                                      <input type="file" name="file" onChange={onChange} /><AddPhotoAlternateIcon />商品画像を登録
-                                                  </label>
-                                              </div>
-                                        </>
-                                    }                         
-                                </>
+                                return <>{registerBx ? <div className={Styles.registerBtn} onClick={() => registerBtn(name,categoryName,price,images)}>登録</div> : <></>}</>
                             }
                         })()}
-                    </div>
-                    <div className={Styles.right}>
-                        <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '25ch' }, }} noValidate autoComplete="off">
-                            <div className={Styles.input}>
-                                <TextBox fullWidth={true} label={"商品名"} multiline={false} required={true} onChange={inputName} rows={1} value={name} type={"text"} />
-                            </div>
-                            <div className={Styles.input}>
-                                <SelectBox label={"カテゴリ―"} required={true} options={categories} select={setCategory} value={category} />
-                            </div>
-                            <div className={Styles.input}>
-                                <TextBox fullWidth={true} label={"価格（税込み）"} multiline={false} required={true} onChange={inputPrice} rows={1} value={price} type={"text"} />
-                                {priceValidation ? <></> : <span className={Styles.validation}>半角数字で入力してください。</span>}
-                            </div>
-                            {(() => {
-                                if (category === 'drink') {
-                                    return <>{registerBx ? <div className={Styles.registerBtn} onClick={() => registerBtn(name,categoryName,price)}>登録</div> : <></>}</>
-                                } else {
-                                    return <>{registerBx ? <div className={Styles.registerBtn} onClick={() => registerBtn(name,categoryName,price,images)}>登録</div> : <></>}</>
-                                }
-                            })()}
-                        </Box>
-                    </div>
+                    </Box>
                 </div>
+            </div>
         </DashboardLayout>
     )
 }

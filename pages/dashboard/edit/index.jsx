@@ -222,109 +222,106 @@ const Edit = () => {
 
     return (
         <DashboardLayout>
-            {/* <div className={Styles.dashboard}>
-                <Sidebar /> */}
-                    <div className={Styles.inner}>
-                        <h2>商品編集</h2>
-                        <ul className={Styles.edit}>
-                            {categories.map(list => (
-                                <li key={list.id}><a href={`#${list.category}`}>{list.name}</a></li>
-                            ))}
+            <div className={Styles.inner}>
+                <h2>商品編集</h2>
+                <ul className={Styles.edit}>
+                    {categories.map(list => (
+                        <li key={list.id}><a href={`#${list.category}`}>{list.name}</a></li>
+                    ))}
+                </ul>
+                <div className={Styles.categoryBx}>
+                    <h3 id="hamburger">ハンバーガー</h3>
+                    <DndContext sensors={sensors} onDragOver={handleDragOver} onDragEnd={handleDragEndHamburger}>
+                        <ul className={Styles.productListBx}>
+                            <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEndHamburger}>
+                                <SortableContext items={burgerProduct.map((item) => item.id)} strategy={rectSortingStrategy}>
+                                    <Grid>
+                                      {burgerProduct.map((list, index) => {
+                                          return (
+                                              <React.Fragment key={index}>
+                                                  <SortableItem key={index} number={index} list={list} category={'hamburger'} />
+                                              </React.Fragment>
+                                          );
+                                      })}
+                                    </Grid>
+                                </SortableContext>
+                            </DndContext>
                         </ul>
-                        <div className={Styles.categoryBx}>
-                            <h3 id="hamburger">ハンバーガー</h3>
-                            <DndContext sensors={sensors} onDragOver={handleDragOver} onDragEnd={handleDragEndHamburger}>
-                                <ul className={Styles.productListBx}>
-                                    <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEndHamburger}>
-                                        <SortableContext items={burgerProduct.map((item) => item.id)} strategy={rectSortingStrategy}>
-                                            <Grid>
-                                              {burgerProduct.map((list, index) => {
-                                                  return (
-                                                      <React.Fragment key={index}>
-                                                          <SortableItem key={index} number={index} list={list} category={'hamburger'} />
-                                                      </React.Fragment>
-                                                  );
-                                              })}
-                                            </Grid>
-                                        </SortableContext>
-                                    </DndContext>
-                                </ul>
-                                {showRegisterHamburgerBtn && (
-                                    <div className={Styles.registerOrderBy} onClick={() => registerOrderByHamburger(burgerProduct)}>新しい順番を登録</div>
-                                )}
-                            </DndContext>
-                        </div>
-                        <div className={Styles.categoryBx}>
-                            <h3 id="setMenu">セットメニュー</h3>
-                            <DndContext sensors={sensors} onDragOver={handleDragOver} onDragEnd={handleDragEndSetMenu}>
-                                <ul className={Styles.productListBx}>
-                                    <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEndSetMenu}>
-                                        <SortableContext items={setMenuProducts.map((item) => item.id)} strategy={rectSortingStrategy}>
-                                            <Grid>
-                                              {setMenuProducts.map((list, index) => {
-                                                  return (
-                                                      <React.Fragment key={index}>
-                                                          <SortableItem key={index} number={index} list={list} category={'setMenu'} />
-                                                      </React.Fragment>
-                                                  );
-                                              })}
-                                            </Grid>
-                                        </SortableContext>
-                                    </DndContext>
-                                </ul>
-                                {showRegisterSetMenuBtn && (
-                                    <div className={Styles.registerOrderBy} onClick={() => registerOrderBySetMenu()}>新しい順番を登録</div>
-                                )}
-                            </DndContext>
-                        </div>
-                        <div className={Styles.categoryBx}>
-                            <h3 id="others">サイドメニュー</h3>
-                            <DndContext sensors={sensors} onDragOver={handleDragOver} onDragEnd={handleDragEndOther}>
-                                <ul className={Styles.productListBx}>
-                                    <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEndOther}>
-                                        <SortableContext items={setMenuProducts.map((item) => item.id)} strategy={rectSortingStrategy}>
-                                            <Grid>
-                                              {sideMenuProduct.map((list, index) => {
-                                                  return (
-                                                      <React.Fragment key={index}>
-                                                          <SortableItem key={index} number={index} list={list} category={'others'} />
-                                                      </React.Fragment>
-                                                  );
-                                              })}
-                                            </Grid>
-                                        </SortableContext>
-                                    </DndContext>
-                                </ul>
-                                {showRegisterSideMenuBtn && (
-                                    <div className={Styles.registerOrderBy} onClick={() => registerOrderBySetSideMenu(sideMenuProduct)}>新しい順番を登録</div>
-                                )}
-                            </DndContext>
-                    </div>
-                    <div className={Styles.categoryBx}>
-                            <h3 id="drink">ドリンク</h3>
-                            <DndContext sensors={sensors} onDragOver={handleDragOver} onDragEnd={handleDragEndDrink}>
-                                <ul className={Styles.productListBx}>
-                                    <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEndDrink}>
-                                        <SortableContext items={drinkProduct.map((item) => item.id)} strategy={rectSortingStrategy}>
-                                            <Grid>
-                                              {drinkProduct.map((list, index) => {
-                                                  return (
-                                                      <React.Fragment key={index}>
-                                                          <SortableItem key={index} number={index} list={list} category={'drink'} />
-                                                      </React.Fragment>
-                                                  );
-                                              })}
-                                            </Grid>
-                                        </SortableContext>
-                                    </DndContext>
-                                </ul>
-                                {showRegisterDrinkBtn && (
-                                    <div className={Styles.registerOrderBy} onClick={() => registerOrderByDrink(drinkProduct)}>新しい順番を登録</div>
-                                )}
-                            </DndContext>
-                        </div>
+                        {showRegisterHamburgerBtn && (
+                            <div className={Styles.registerOrderBy} onClick={() => registerOrderByHamburger(burgerProduct)}>新しい順番を登録</div>
+                        )}
+                    </DndContext>
                 </div>
-            {/* </div> */}
+                <div className={Styles.categoryBx}>
+                    <h3 id="setMenu">セットメニュー</h3>
+                    <DndContext sensors={sensors} onDragOver={handleDragOver} onDragEnd={handleDragEndSetMenu}>
+                        <ul className={Styles.productListBx}>
+                            <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEndSetMenu}>
+                                <SortableContext items={setMenuProducts.map((item) => item.id)} strategy={rectSortingStrategy}>
+                                    <Grid>
+                                      {setMenuProducts.map((list, index) => {
+                                          return (
+                                              <React.Fragment key={index}>
+                                                  <SortableItem key={index} number={index} list={list} category={'setMenu'} />
+                                              </React.Fragment>
+                                          );
+                                      })}
+                                    </Grid>
+                                </SortableContext>
+                            </DndContext>
+                        </ul>
+                        {showRegisterSetMenuBtn && (
+                            <div className={Styles.registerOrderBy} onClick={() => registerOrderBySetMenu()}>新しい順番を登録</div>
+                        )}
+                    </DndContext>
+                </div>
+                <div className={Styles.categoryBx}>
+                    <h3 id="others">サイドメニュー</h3>
+                    <DndContext sensors={sensors} onDragOver={handleDragOver} onDragEnd={handleDragEndOther}>
+                        <ul className={Styles.productListBx}>
+                            <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEndOther}>
+                                <SortableContext items={setMenuProducts.map((item) => item.id)} strategy={rectSortingStrategy}>
+                                    <Grid>
+                                      {sideMenuProduct.map((list, index) => {
+                                          return (
+                                              <React.Fragment key={index}>
+                                                  <SortableItem key={index} number={index} list={list} category={'others'} />
+                                              </React.Fragment>
+                                          );
+                                      })}
+                                    </Grid>
+                                </SortableContext>
+                            </DndContext>
+                        </ul>
+                        {showRegisterSideMenuBtn && (
+                            <div className={Styles.registerOrderBy} onClick={() => registerOrderBySetSideMenu(sideMenuProduct)}>新しい順番を登録</div>
+                        )}
+                    </DndContext>
+                </div>
+                <div className={Styles.categoryBx}>
+                    <h3 id="drink">ドリンク</h3>
+                    <DndContext sensors={sensors} onDragOver={handleDragOver} onDragEnd={handleDragEndDrink}>
+                        <ul className={Styles.productListBx}>
+                            <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEndDrink}>
+                                <SortableContext items={drinkProduct.map((item) => item.id)} strategy={rectSortingStrategy}>
+                                    <Grid>
+                                      {drinkProduct.map((list, index) => {
+                                          return (
+                                              <React.Fragment key={index}>
+                                                  <SortableItem key={index} number={index} list={list} category={'drink'} />
+                                              </React.Fragment>
+                                          );
+                                      })}
+                                    </Grid>
+                                </SortableContext>
+                            </DndContext>
+                        </ul>
+                        {showRegisterDrinkBtn && (
+                            <div className={Styles.registerOrderBy} onClick={() => registerOrderByDrink(drinkProduct)}>新しい順番を登録</div>
+                        )}
+                    </DndContext>
+                </div>
+            </div>
         </DashboardLayout>
     )
 }

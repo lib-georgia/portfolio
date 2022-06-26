@@ -8,8 +8,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { db } from '../../firebaseApp';
 import {loadStripe} from "@stripe/stripe-js/pure";
 import {Elements,CardElement,useStripe,useElements} from "@stripe/react-stripe-js";
-import axios from "axios";
-
+import fetch from 'node-fetch'
 
 const Cart = () => {
     const [cartItem, setCartItem] = useState("");
@@ -105,7 +104,6 @@ const Cart = () => {
     
     const [cardErrorMessage, setCardErrorMessage] = useState(false);
     const [paymentCompleted, setPaymentCompleted] = useState(false);
-    // const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
     const [stripePromise, setStripePromise] = useState(() => loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY))
 
     const cardStyles = {
@@ -154,21 +152,25 @@ const Cart = () => {
         const stripe = useStripe();
         const elements = useElements();
         const handleSubmit = async event => {
-            console.log('handleSubmit')
             event.preventDefault();
-            console.log('start')
             const { error, paymentMethod } = await stripe.createPaymentMethod({
                 type: "card",
                 card:elements.getElement(CardElement)
             });
-            console.log('end')
             setPaymentLoad(true)
-            console.log('error',error)
+            const headers = new Headers();
+            headers.set('Content-type', 'application/json');
             if (!error) {
                 const { id } = paymentMethod;
                 try {
-                    const { data } = await axios.post(`${process.env.NEXT_PUBLIC_PAYMENT_API_URL}`, { id, amount: total });
-                    console.log(data)
+                    const { data } = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/stripePaymentMethods`, {
+                        method: 'POST',
+                        headers: headers,
+                        body: JSON.stringify({
+                            id: id,
+                            amount: total
+                        })
+                    })
                     let d = new Date();
                     let year = d.getFullYear();
                     let month = d.getMonth() + 1;
@@ -201,8 +203,7 @@ const Cart = () => {
             <button type="submit" disabled={!stripe} style={style}>購入</button>
             </form>
     }
-    console.log(paymentLoad)
-    console.log(`${process.env.NEXT_PUBLIC_PAYMENT_API_URL}`)
+    
     return (
         <>
             <Head>

@@ -154,61 +154,61 @@ const Order = () => {
     
     return (
         <DashboardLayout>
-                <div className={Styles.inner}>
-                    <h2>注文管理</h2>
-                    <ul className={Styles.orderTabBtn}>
-                        <li onClick={() => { setNewOrder(true); setOffer(false); setNewOrderActive(true); setNotOfferActive(false)}} className={newOrderActive ? Styles.n_active : ""}>ご新規</li>
-                        <li onClick={() => { setOffer(true); setNewOrder(false); setNewOrderActive(false); setNotOfferActive(true)}} className={notOfferActive ? Styles.o_active : ""}>提供済</li>
-                    </ul>
-                    <div className={Styles.orderList}>
-                        {newOrder ?
-                            <>
-                                {lastDayOrders.length > 0 && (
-                                    lastDayOrders.map((list, index) => (
-                                        <div key={index} className={Styles.orderListInner}>
-                                            <h3>{list.id}番</h3>
-                                            {list.data.length > 0 && (
-                                                list.data.map((lst, index) => (
-                                                    <div key={index} className={Styles.ovf}><span className={Styles.productName}>{lst.name}</span><span className={Styles.quantity}>{lst.quantity}個</span></div>
-                                                ))
-                                            )}
-                                            <div>ご注文時間：{list.orderTime}</div>
-                                            <div className={Styles.provide} onClick={() => handleClick(list.id, list.data)}>提供</div>
-                                        </div>
-                                    )))}
-                                {orders.length > 0 && (
-                                    orders.map((list, index) => (
-                                        <div key={index} className={Styles.orderListInner}>
-                                            <h3>{list.id}番</h3>
-                                            {list.data.length > 0 && (
-                                                list.data.map((lst, index) => (
-                                                    <div key={index} className={Styles.ovf}><span className={Styles.productName}>{lst.name}</span><span className={Styles.quantity}>{lst.quantity}個</span></div>
-                                                ))
-                                            )}
-                                            <div>ご注文時間：{list.orderTime}</div>
-                                            <div className={Styles.provide} onClick={() => handleClick(list.id, list.data)}>提供</div>
-                                        </div>
-                                    )))}
-                            </> : <></>
-                        }
-                        {offer ?
-                            <>
-                                {completed.length > 0 && (
-                                    completed.map((list, index) => (
-                                        <div key={index} className={Styles.orderListInner}>
-                                            <h3>{list.id}番</h3>
-                                            {list.data.length > 0 && (
-                                                list.data.map((lst, index) => (
-                                                    <div key={index} className={Styles.ovf}><span className={Styles.productName}>{lst.name}</span><span className={Styles.quantity}>{lst.quantity}個</span></div>
-                                                ))
-                                            )}
-                                            <div>提供時間：{list.time}</div>
-                                        </div>
-                                    )))}
-                            </> : <></>
-                        }
-                    </div>
+            <div className={Styles.inner}>
+                <h2>注文管理</h2>
+                <ul className={Styles.orderTabBtn}>
+                    <li onClick={() => { setNewOrder(true); setOffer(false); setNewOrderActive(true); setNotOfferActive(false)}} className={newOrderActive ? Styles.n_active : ""}>ご新規</li>
+                    <li onClick={() => { setOffer(true); setNewOrder(false); setNewOrderActive(false); setNotOfferActive(true)}} className={notOfferActive ? Styles.o_active : ""}>提供済</li>
+                </ul>
+                <div className={Styles.orderList}>
+                    {newOrder ?
+                        <>
+                            {lastDayOrders.length > 0 && (
+                                lastDayOrders.map((list, index) => (
+                                    <div key={index} className={Styles.orderListInner}>
+                                        <h3>{list.id}番</h3>
+                                        {list.data.length > 0 && (
+                                            list.data.map((lst, index) => (
+                                                <div key={index} className={Styles.ovf}><span className={Styles.productName}>{lst.name}</span><span className={Styles.quantity}>{lst.quantity}個</span></div>
+                                            ))
+                                        )}
+                                        <div>ご注文時間：{list.orderTime}</div>
+                                        <div className={Styles.provide} onClick={() => handleClick(list.id, list.data)}>提供</div>
+                                    </div>
+                                )))}
+                            {orders.length > 0 && (
+                                orders.map((list, index) => (
+                                    <div key={index} className={Styles.orderListInner}>
+                                        <h3>{list.id}番</h3>
+                                        {list.data.length > 0 && (
+                                            list.data.map((lst, index) => (
+                                                <div key={index} className={Styles.ovf}><span className={Styles.productName}>{lst.name}</span><span className={Styles.quantity}>{lst.quantity}個</span></div>
+                                            ))
+                                        )}
+                                        <div>ご注文時間：{list.orderTime}</div>
+                                        <div className={Styles.provide} onClick={() => handleClick(list.id, list.data)}>提供</div>
+                                    </div>
+                                )))}
+                        </> : <></>
+                    }
+                    {offer ?
+                        <>
+                            {completed.length > 0 && (
+                                completed.map((list, index) => (
+                                    <div key={index} className={Styles.orderListInner}>
+                                        <h3>{list.id}番</h3>
+                                        {list.data.length > 0 && (
+                                            list.data.map((lst, index) => (
+                                                <div key={index} className={Styles.ovf}><span className={Styles.productName}>{lst.name}</span><span className={Styles.quantity}>{lst.quantity}個</span></div>
+                                            ))
+                                        )}
+                                        <div>提供時間：{list.time}</div>
+                                    </div>
+                                )))}
+                        </> : <></>
+                    }
                 </div>
+            </div>
         </DashboardLayout>
     )
 }

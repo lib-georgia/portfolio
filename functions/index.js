@@ -1,10 +1,21 @@
 const functions = require('firebase-functions');
+const cors = require("cors");
 const admin = require('firebase-admin')
 const serviceAccount = require("./serviceAccountKey.json");
+const Config = require('./config');
+const stripe = require('stripe')(Config.STRIPE_SECRET_KEY);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "NEXT_PUBLIC_FIREBASE_APP_APIS"
 });
+
+const sendResponse = (response, statusCode, body) => {
+    response.send({
+        statusCode,
+        headers: { "Access-Control-Allow-Origin": "*" },
+        body: JSON.stringify(body)
+    })
+}
 
 const db = admin.firestore();
 
@@ -120,3 +131,24 @@ exports.getDrink = functions.https.onRequest((request, response) => {
         response.json(drinks);
     }
 });
+
+exports.stripePaymentMethods = functions.https.onRequest((req, res) => {
+    const corsHandler = cors({ origin: true });
+    corsHandler(req, res, () => {
+        if (req.method !== 'POST') {
+            sendResponse(res, 405, { error: "Invalid Request" })
+        }
+        return stripe.paymentIntents.create({
+            amount:req.body.amount,
+            currency: "JPY",
+            description: "Tbilisi Burger",
+            payment_method: req.body.id,
+            confirm: true
+        }).then(() => {
+            sendResponse(res, 200, {confirm: "completed"});
+        }).catch((error) => {
+            console.error(error);
+            sendResponse(res, 500, { error: error })
+        })
+    })
+})
