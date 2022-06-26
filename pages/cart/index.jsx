@@ -156,12 +156,13 @@ const Cart = () => {
         const handleSubmit = async event => {
             console.log('handleSubmit')
             event.preventDefault();
+            console.log('start')
             const { error, paymentMethod } = await stripe.createPaymentMethod({
                 type: "card",
                 card:elements.getElement(CardElement)
             });
+            console.log('end')
             setPaymentLoad(true)
-            alert(error)
             if (!error) {
                 const { id } = paymentMethod;
                 try {
