@@ -13,13 +13,14 @@ const DashboardLayout = ({children}) => {
             if (user){
                 setUser(user);
             } else {
-                Router.push('/dashboard/signin')
+                Router.push('/dashboard/signin/')
             }
         });
         return () => {
           unsubscribed();
         };
     }, [auth]);
+
 
     return (
         <AuthProvider>
