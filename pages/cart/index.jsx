@@ -161,6 +161,7 @@ const Cart = () => {
                 card:elements.getElement(CardElement)
             });
             setPaymentLoad(true)
+            alert(error)
             if (!error) {
                 const { id } = paymentMethod;
                 try {
