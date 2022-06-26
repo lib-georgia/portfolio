@@ -5,9 +5,7 @@ const nextConfig = {
 module.exports = {
   nextConfig,
   images: {
-    domains: ['firebasestorage.googleapis.com'],
-    loader: 'akamai',
-    path: '',
+    domains: ['firebasestorage.googleapis.com']
   },
   stripe_public_key: process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY,
   experimental: {
