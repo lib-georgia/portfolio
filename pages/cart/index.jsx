@@ -105,7 +105,8 @@ const Cart = () => {
     
     const [cardErrorMessage, setCardErrorMessage] = useState(false);
     const [paymentCompleted, setPaymentCompleted] = useState(false);
-    const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
+    // const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
+    const [stripePromise, setStripePromise] = useState(() => loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY))
 
     const cardStyles = {
         style: {
