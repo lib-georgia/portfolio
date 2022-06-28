@@ -12,10 +12,10 @@
 
 ## 使い方
 
-ユーザー画面
+「ユーザー画面」
 1. [こちらからアクセス](https://portfolio-virid-rho-27.vercel.app/)
 
-管理画面
+「管理画面」
 1. [こちらからアクセス](https://portfolio-virid-rho-27.vercel.app/dashboard/signin)
 2. メールに添付したメールアドレスとパスワードでサインインできます。
 
