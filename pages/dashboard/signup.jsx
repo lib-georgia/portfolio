@@ -71,7 +71,7 @@ const SignUp = () => {
             <input className={styles.inputBx} placeholder='confirmPassword（確認用パスワード）' type={"password"} onChange={inputConfirmPassword} value={confirmPassword} />
             <button onClick={() => toSignUp(name, email, password, confirmPassword)}>登録</button>
             <Link href={'/dashboard/signin'}>
-              <a data-testid='signin'>
+              <a>
                 <p>ログインはこちら</p>
               </a>
             </Link>

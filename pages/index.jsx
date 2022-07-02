@@ -55,11 +55,11 @@ const Home = ({ burgerProduct, hamburgerCounter, menuProduct, setMenuCounter, si
     <div className={styles.container}>
     <div className={styles.header}>
         <div className={styles.logoBx}>
-            <Image src={logo} alt="logo" width="35px" height="35px" data-testid="imgTestId" />
+            <Image src={logo} alt="logo" width="35px" height="35px" />
         </div>
         <div className={styles.toCart}>
             <Link href={'/cart'}>
-                <a data-testid='cart'>
+                <a>
                     <IconButton aria-label="cart">
                         <StyledBadge badgeContent={cartItem} color="secondary">
                             <ShoppingCartIcon className={styles.cartIcon} />

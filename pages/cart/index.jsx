@@ -203,7 +203,7 @@ const Cart = () => {
             <button type="submit" disabled={!stripe} style={style}>購入</button>
             </form>
     }
-    
+
     return (
         <>
             <Head>
@@ -212,7 +212,7 @@ const Cart = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
         <div className={Styles.cartBx}>
-            <h2>My Cart<Link href={'/'}><a data-testid='back-topPage'>← トップページ</a></Link></h2>
+            <h2>My Cart<Link href={'/'}><a>← トップページ</a></Link></h2>
             <table>
                 <thead>
                     <tr>

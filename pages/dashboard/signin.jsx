@@ -36,9 +36,9 @@ const Signin = () => {
               <h1>Sign in</h1>
               <input className={styles.inputBx} placeholder='Email（メールアドレス）' type={"email"} onChange={inputEmail} value={email} />
               <input className={styles.inputBx} placeholder='Password（パスワード）' type={"password"} onChange={inputPassword} value={password} />
-              <button onClick={() => toLogin(email, password)} data-testid='login'>ログイン</button>
+              <button onClick={() => toLogin(email, password)}>ログイン</button>
               <Link href={'/dashboard/signup'}>
-                <a data-testid='signup'>
+                <a>
                   <p>登録はこちら</p>
                 </a>
               </Link>
