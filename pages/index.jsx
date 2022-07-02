@@ -51,9 +51,29 @@ const Home = ({ burgerProduct, hamburgerCounter, menuProduct, setMenuCounter, si
   }
   }
 
+  const [scrollY, setScrollY] = useState(0)
+  const handleScroll = () => {
+    setScrollY(window.scrollY)
+  }
+  useEffect(()=> {
+    window.addEventListener('scroll', handleScroll )
+  }, [])
+
+  const [windowSize, setWindowSize] = useState(0);
+  useEffect(() => {
+    const handleResize = () => {
+      
+      setWindowSize(window.innerHeight);
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+  },[])
+
+  console.log(windowSize, '>' ,scrollY)
+
   return (
     <div className={styles.container}>
-    <div className={styles.header}>
+      <div className={(() => {if (scrollY > windowSize) {return styles.headerMove} else { return styles.header}})()}>
         <div className={styles.logoBx}>
             <Image src={logo} alt="logo" width="35px" height="35px" />
         </div>
@@ -79,7 +99,7 @@ const Home = ({ burgerProduct, hamburgerCounter, menuProduct, setMenuCounter, si
         </div>
         <div className={styles.right}><p>burger</p></div>
         <div className={styles.imagesBx}>
-            <Image src={Kv} alt="kv" layout="fill" objectFit="contain" priority={true} />
+            <Image src={Kv} alt="kv" objectFit="contain" priority={true} />
         </div>
       </div>
       {burgerProduct.length > 0 ? <HamburgerMenu handleClick={handleClick} burgerProduct={burgerProduct} hamburgerCounter={hamburgerCounter} id="hamburger" /> : <></>}      
