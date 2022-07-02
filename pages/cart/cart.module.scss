@@ -140,16 +140,21 @@
         }
     }
     .cardErrorMessage,.paymentCompleted{
-        position:absolute;
+        position:fixed;
         top:0;
         right:0;
         bottom:0;
         left:0;
         background:rgb(0,0,0,0.7);
-        margin:auto;
-        height: 100vw;
+        @include mq(pc){
+            margin:auto;
+            height: 100vw;
+        }
+        @include mq(tab){
+        }
+        @include mq(sp){
+        }
         .inner{
-            width:500px;
             margin:0 auto;
             padding:3%;
             background:#fff;
@@ -158,6 +163,15 @@
             left: 50%;
             transform: translateY(-50%) translateX(-50%);
             -webkit-transform: translateY(-50%) translateX(-50%);
+            @include mq(pc){
+                width:500px;
+            }
+            @include mq(tab){
+                width:90%;
+            }
+            @include mq(sp){
+                width:90%;
+            }
             h3,p{
                 text-align: center;
                 color: #fa3d47;

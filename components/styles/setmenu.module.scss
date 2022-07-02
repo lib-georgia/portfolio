@@ -26,7 +26,7 @@
         grid-template-columns: repeat(3, 1fr);
     }
     @include mq(sp){
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
     li{
         width:100%;
@@ -43,7 +43,7 @@
             height: 13vw;
             display: block;
             @include mq(sp){
-                height:18vw;
+                height:38vw;
             }
         }
         @include mq(tab){
@@ -121,7 +121,7 @@
                 height: 15vw;
             }
             @include mq(sp){
-                height: 23vw;
+                height: 38vw;
             }
         }
     }

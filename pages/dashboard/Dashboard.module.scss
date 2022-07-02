@@ -12,9 +12,8 @@
         width: 92%;
     }
     @include mq(sp){
-        width: 100%;
-        padding: 2% 2% 2% 9%;
-        padding-left: 60px;
+        width: calc(100% - 45px);
+        padding: 2%;
     }
     h2{
         margin: 0;
@@ -52,6 +51,7 @@
         @include mq(sp){
             float:none;
             width: 100%;
+            overflow: hidden;
         }
         .notSetImagesBx{
             position: relative;
@@ -81,7 +81,7 @@
                     height: 25vw;
                 }
                 @include mq(sp){
-                    height: 50vw;
+                    height: 30vw!important;
                 }
             }
         }
@@ -123,7 +123,7 @@
         @include mq(sp){
             float:none;
             width: 100%;
-            margin-top: 10%;
+            margin-top: 6%;
         }
         form{
             width:100%;
@@ -163,10 +163,17 @@
             }
         }
     }
+    .categoryList{
+        width: 100%;
+        overflow-x: scroll;
+        padding: 0 0 10px 0;
+        box-sizing: border-box;
     .edit{
-        list-style:none;
-        padding:0;
+        list-style: none;
+        padding: 0;
         overflow: hidden;
+        width: 450px;
+        margin: 0;
         li{
             float:left;
             background: #fbd45b;
@@ -195,6 +202,7 @@
             }
         }
     }
+}
     .categoryBx{
         margin-bottom:2%;
         .productListBx{
@@ -219,16 +227,11 @@
                 }
                 @include mq(sp){
                     float:none;
-                    width:48.5%;
-                    margin:0 0 2% 0;
-                    &:nth-child(odd){
-                        float:left;
-                    }
-                    &:nth-child(even){
-                        float:right;
-                    }
+                    width:100%;
+                    margin:0 0 2.5% 0;
                 }
                 h4{
+                    text-align: center;
                     margin: 4% 0 0 0;
                 }
                 a{
@@ -242,11 +245,12 @@
                             height: 13vw;
                         }
                         @include mq(sp){
-                            height: 18vw;
+                            height: 30vw;
                         }
                     }
                 }
                 p{
+                    text-align: center;
                     margin:0;
                 }
                 &:hover{
@@ -297,10 +301,6 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             @include mq(sp){
-                display: grid;
-                column-gap: 24px;
-                row-gap: 20px;
-                grid-template-columns: repeat(1, 1fr);
             }
             .salesBxInner{
                 width:100%;
@@ -308,8 +308,18 @@
                 .salesGrid{
                     overflow: hidden;
                         .SalesProductList{
-                            float:left;
-                            width: 48.5%;
+                            @include mq(pc){
+                                float:left;
+                                width:48.5%;
+                            }
+                            @include mq(tab){
+                                float:left;
+                                width:48.5%;
+                            }
+                            @include mq(sp){
+                                float:none;
+                                width:100%;
+                            }
                             h3{
                                 color: rgb(88, 82, 128);
                                 font-size: 18px;
@@ -396,8 +406,18 @@
                             }
                         }
                         .SalesChart{
-                            float:right;
-                            width:48%;
+                            @include mq(pc){
+                                float:right;
+                                width:48%;
+                            }
+                            @include mq(tab){
+                                float:right;
+                                width:48%;
+                            }
+                            @include mq(sp){
+                                float:none;
+                                width:100%;
+                            }
                         }
                 }
             }
@@ -794,23 +814,33 @@
     }
     .searchBox{
         .searchInputBx{
-            width: 430px;
             @include mq(pc){
+                width: 430px;
                 margin: 2% auto;
             }
             @include mq(tab){
+                width: 100%;
                 margin: 2% auto 4%;
             }
             @include mq(sp){
+                width: 100%;
                 margin: 2% auto 9%;
             }
             position:relative;
             input{
-                width: 100px;
                 padding: 10px 15px 8px;
                 box-sizing: border-box;
                 font-size: 18px;
                 text-align: center;
+                @include mq(pc){
+                    width: 100px;
+                }
+                @include mq(tab){
+                    width: 100px;
+                }
+                @include mq(sp){
+                    width: 18%;
+                }
             }
             svg{
                 background: #fbd45b;

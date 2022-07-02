@@ -224,11 +224,13 @@ const Edit = () => {
         <DashboardLayout>
             <div className={Styles.inner}>
                 <h2>商品編集</h2>
-                <ul className={Styles.edit}>
-                    {categories.map(list => (
-                        <li key={list.id}><a href={`#${list.category}`}>{list.name}</a></li>
-                    ))}
-                </ul>
+                <div className={Styles.categoryList}>
+                    <ul className={Styles.edit}>
+                        {categories.map(list => (
+                            <li key={list.id}><a href={`#${list.category}`}>{list.name}</a></li>
+                        ))}
+                    </ul>
+                </div>
                 <div className={Styles.categoryBx}>
                     <h3 id="hamburger">ハンバーガー</h3>
                     <DndContext sensors={sensors} onDragOver={handleDragOver} onDragEnd={handleDragEndHamburger}>
