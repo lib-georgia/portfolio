@@ -275,6 +275,8 @@
         }
         @include mq(sp){
             margin: 0 0 2.5% 0;
+            display: flex;
+            font-size: 12px;
         }
         li{
             width: 48.5%;
@@ -295,10 +297,19 @@
         }
         li:nth-child(odd){
             float: left;
+            @include mq(sp){
+                float:none;
+            }
         }
         li:nth-child(even){
             float: right;
-        }        
+            @include mq(sp){
+                float:none;
+            }
+        }
+        li:nth-child(2){
+            margin:0 2.5%;
+        }     
     }
     .salesList{
         margin-top:35px;
@@ -429,7 +440,8 @@
                             }
                             @include mq(sp){
                                 float:none;
-                                width:100%;
+                                width: 80%;
+                                margin: 0 auto;
                             }
                         }
                 }
