@@ -1,5 +1,4 @@
 import React,{useState,useCallback} from 'react'
-import TextBox from '../../components/Uikit/TextBox';
 import { db } from "../../firebaseApp";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Router from 'next/router'
@@ -17,10 +16,9 @@ const SignUp = () => {
   const inputName = useCallback((event) => { setName(event.target.value) }, [setName]);
   const inputEmail = useCallback((event) => { setEmail(event.target.value) }, [setEmail]);
   const inputPassword = useCallback((event) => { setPassword(event.target.value) }, [setPassword]); 
-    const inputConfirmPassword = useCallback((event) => { setConfirmPassword(event.target.value) }, [setConfirmPassword]);
+  const inputConfirmPassword = useCallback((event) => { setConfirmPassword(event.target.value) }, [setConfirmPassword]);
     
   const toSignUp = (name,email,password,confirmPassword) => {
-    // const auth = getAuth(FirebaseApp);
     const auth = getAuth();
     if (name === "" || email === "" || password === "" || confirmPassword === "") {
         alert("必須項目が未入力です。")
@@ -67,10 +65,10 @@ const SignUp = () => {
         <div className={styles.right}>
           <div className={styles.signUpBx}>
             <h1>Sign up</h1>
-            <TextBox className={'inputBx'} label={'Full Name（フルネーム）'} type={"text"} InputLabelProps={{ shrink: true, }} variant={"standard"} value={name} onChange={inputName} />
-            <TextBox className={'inputBx'} label={'Email（メールアドレス）'} type={"email"} InputLabelProps={{ shrink: true, }} variant={"standard"} value={email} onChange={inputEmail} />
-            <TextBox className={'inputBx'} label={'Password（パスワード）'} type={"text"} InputLabelProps={{ shrink: true, }} variant={"standard"} value={password} onChange={inputPassword} />
-            <TextBox className={'inputBx'} label={'confirmPassword（確認用パスワード）'} type={"text"} InputLabelProps={{ shrink: true, }} variant={"standard"} value={confirmPassword} onChange={inputConfirmPassword} />
+            <input className={styles.inputBx} placeholder='Full Name（フルネーム）' type={"text"} onChange={inputName} value={name} />
+            <input className={styles.inputBx} placeholder='Email（メールアドレス）' type={"email"} onChange={inputEmail} value={email} />
+            <input className={styles.inputBx} placeholder='Password（パスワード）' type={"password"} onChange={inputPassword} value={password} />
+            <input className={styles.inputBx} placeholder='confirmPassword（確認用パスワード）' type={"password"} onChange={inputConfirmPassword} value={confirmPassword} />
             <button onClick={() => toSignUp(name, email, password, confirmPassword)}>登録</button>
             <Link href={'/dashboard/signin'}>
               <a data-testid='signin'>
