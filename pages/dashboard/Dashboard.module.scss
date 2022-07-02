@@ -265,18 +265,26 @@
     }
     .orderTabBtn{
         list-style: none;
-        display: flex;
+        overflow:hidden;
         padding: 0;
-        margin: 0;
+        @include mq(pc){
+            margin: 0;
+        }
+        @include mq(tab){
+            margin: 0;
+        }
+        @include mq(sp){
+            margin: 0 0 2.5% 0;
+        }
         li{
-            width: 48%;
+            width: 48.5%;
             background: #fbd45b;
             text-align: center;
             color: #fff;
             font-weight: bold;
             padding: 10px 0 8px;
             border-radius: 5px 5px 0 0;
-            margin-right: 1%;
+            margin: 0;
             cursor:pointer;
             &:hover{
                 opacity:0.7;
@@ -285,7 +293,12 @@
         li.n_active,li.o_active,li.choiceToday,li.choiceMonth,li.choiceSearch{
             opacity:0.8;
         }
-        
+        li:nth-child(odd){
+            float: left;
+        }
+        li:nth-child(even){
+            float: right;
+        }        
     }
     .salesList{
         margin-top:35px;
@@ -530,24 +543,30 @@
     }
     .orderList{
         overflow: hidden;
-        display: grid;
-        column-gap: 1em;
-        row-gap: 1em;
-        margin-top:1em;
         @include mq(pc){
+            display: grid;
+            column-gap: 1em;
+            row-gap: 1em;
+            margin-top:1em;
             grid-template-columns: repeat(4, 1fr);
         }
         @include mq(tab){
+            display: grid;
+            column-gap: 1em;
+            row-gap: 1em;
+            margin-top:1em;
             grid-template-columns: repeat(3, 1fr);
         }
         @include mq(sp){
-            grid-template-columns: repeat(2, 1fr);
         }
         .orderListInner{
             padding:20px;
             box-sizing: border-box;
             background:rgb(248, 248, 248);
             width: 100%;
+            @include mq(sp){
+                margin-bottom:2.5%;
+            }
             h3{
                 color:rgb(88, 82, 128);
                 margin: 0;
