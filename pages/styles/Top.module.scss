@@ -145,14 +145,6 @@
         background: #fbd45b;
         width:50%;
         height:100vh;
-        @include mq(tab){
-            width: 65%;
-            height: 100vh;
-        }
-        @include mq(sp){
-            width: 65%;
-            height: 100vh;
-        }
         p{
             -webkit-transform: rotate(-90deg);
             -moz-transform: rotate(-90deg);
