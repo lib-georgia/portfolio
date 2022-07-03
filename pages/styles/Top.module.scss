@@ -11,6 +11,9 @@
     z-index: 999;
     .logoBx{
         float:left;
+        padding: 9px 9px 5px;
+        box-sizing: border-box;
+        width: 51px;
     }
     .toCart{
         float:right;
@@ -144,15 +147,20 @@
             height: 100vh;
         }
         p{
-            transform: rotate( -90deg );
-            font-size: 260px;
-            font-weight: bold;
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+            font-size: 29vh;
+            font-weight: 700;
             position: absolute;
-            right: -225px;
-            margin: 0;
-            bottom: 290px;
+            margin: auto;
+            bottom: 0;
             color: #fff;
-            opacity: 0.2;
+            opacity: .2;
+            top: 0;
+            display: block;
+            right: -24vh;
+            height: fit-content;
         }
     }
     .imagesBx{
@@ -167,7 +175,7 @@
             width: 50%;
         }
         @include mq(sp){
-            width: 100%;
+            width: 90%;
             height: 50vw;
         }
     }

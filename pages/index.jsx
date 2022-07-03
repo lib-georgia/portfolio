@@ -69,8 +69,6 @@ const Home = ({ burgerProduct, hamburgerCounter, menuProduct, setMenuCounter, si
     handleResize();
   },[])
 
-  console.log(windowSize, '>' ,scrollY)
-
   return (
     <div className={styles.container}>
       <div className={(() => {if (scrollY > windowSize) {return styles.headerMove} else { return styles.header}})()}>

@@ -1,8 +1,16 @@
 @import "../../styles/_breakpoint";
 @import "../../styles/_mixin";
 .HamburgerBx{
-    width: 98%;
     margin: 0 auto;
+    @include mq(pc){
+        width: 97%;
+    }
+    @include mq(tab){
+        width: 94%;
+    }
+    @include mq(sp){
+        width: 90%;
+    }
     h2{
         text-align: center;
         font-size:30px;
