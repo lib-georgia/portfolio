@@ -10,7 +10,6 @@ import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import { HamburgerMenu,SetMenu,SideMenu,DrinkMenu } from '../components'
 import {getHamburgerData,getSetMenuData,getSideMenuData,getDrinkData} from '../lib/fetch'
-import fetch from 'node-fetch'
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {

@@ -8,7 +8,7 @@
     overflow:hidden;
     padding: 10px 15px;
     box-sizing: border-box;
-    z-index: 999;
+    z-index: 9999;
     .logoBx{
         float:left;
         padding: 9px 9px 5px;
@@ -36,6 +36,9 @@
     z-index: 999;
     .logoBx{
         float:left;
+        padding: 9px 9px 5px;
+        box-sizing: border-box;
+        width: 51px;
     }
     .toCart{
         float:right;
@@ -75,6 +78,10 @@
                 width: 200%;
                 bottom: 50px;
                 left: 50px;
+                @include mq(beside){
+                    bottom: 20px;
+                    left: 20px;
+                }
             }
             @include mq(sp){
                 width: 200%;
@@ -82,16 +89,24 @@
                 left: 20px;
             }
             h1{
-                font-size: 4.5vw;
                 letter-spacing: .2rem;
                 margin: 0;
                 font-family: 'Paytone One', sans-serif;
                 line-height: 1;
+                @include mq(pc){
+                    font-size: 4.5vw;
+                }
                 @include mq(tab){
                     font-size: 9vw;
+                    @include mq(beside){
+                        font-size: 8vw;
+                    }
                 }
                 @include mq(sp){
                     font-size: 9vw;
+                    @include mq(beside){
+                        font-size: 6vw;
+                    }
                 }
             }
             p{
@@ -101,8 +116,10 @@
             }
             .btn{
                 background: #fbd45b;
-                border-radius: 30px;
+                border-radius: 3px;
                 margin-top: 1.5vw;
+                width: 22vw;
+                min-width: 200px;
                 a{
                     width:100%;
                     padding: 10px 0;
@@ -172,11 +189,22 @@
         transform: translateY(-50%) translateX(-50%);
         -webkit-transform: translateY(-50%) translateX(-50%);
         @include mq(tab){
-            width: 50%;
+            width: 80%;
+            height: 56vw;
+            @include mq(beside){
+                width: 50%;
+                height: 35vw;
+            }
         }
         @include mq(sp){
-            width: 90%;
-            height: 50vw;
+            width: 80%;
+            height: 54vw;
+            @include mq(beside){
+                width: 54%;
+                height: 40vw;
+                margin: 0 auto;
+                text-align: center;
+            }
         }
     }
 }
