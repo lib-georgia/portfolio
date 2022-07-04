@@ -5,13 +5,22 @@ import styles from './Sign.module.scss';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Router from 'next/router'
 import logo from '../../assets/images/logo2.png'
-import {auth} from '../../firebaseApp'
+import { auth } from '../../firebaseApp'
+import {isValidEmailFormat,isValidRequiredInput} from '../../lib/validation.js'
 const Signin = () => {
   const [email, setEmail] = useState(""),
     [password, setPassword] = useState("");
   const inputEmail = useCallback((event) => { setEmail(event.target.value) }, [setEmail]);
   const inputPassword = useCallback((event) => { setPassword(event.target.value) }, [setPassword]);
-  const toLogin = () => {
+  const toLogin = (email, password) => {
+      if (!isValidRequiredInput(email, password)) {
+        alert('メールアドレスかパスワードが未入力です。')
+        return false
+      }
+      if (!isValidEmailFormat(email)) {
+        alert('メールアドレスの形式が不正です。')
+        return false
+      }
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         Router.push('/dashboard')

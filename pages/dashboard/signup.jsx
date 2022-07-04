@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import logo from '../../assets/images/logo2.png'
 import styles from './Sign.module.scss';
+import { isValidEmailFormat } from '../../lib/validation.js'
 
 const SignUp = () => {
     const [name, setName] = useState(""),
@@ -31,6 +32,10 @@ const SignUp = () => {
     if (password.length < 6) {
         alert('パスワードは6文字以上で入力してください。')
         return false
+    }
+    if(!isValidEmailFormat(email)) {
+      alert('メールアドレスの形式が不正です。もう1度お試しください。')
+      return false
     }
  createUserWithEmailAndPassword(auth,email, password).then(async(userCredential) => {
    const user = userCredential.user;
