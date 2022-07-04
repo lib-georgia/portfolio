@@ -25,7 +25,10 @@ const HeadSettings = (props) => {
     }    
   }
 
-  
+  const imageUrl = 'https://firebasestorage.googleapis.com/v0/b/hamburger-shop-45f18.appspot.com/o/images%2Fhamburger-shop.png?alt=media&token=44b92581-10ac-4b01-9acf-07648735e6d3';
+  const imgWidth = 1280
+  const imgHeight = 800
+
   return (
     <Head>
     <title>Tbilisi Burger&nbsp;|&nbsp;{titles()}</title>
@@ -35,10 +38,12 @@ const HeadSettings = (props) => {
     <meta name="robots" content="noindex"></meta>
     <meta property="og:url" content="https://portfolio-virid-rho-27.vercel.app/" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={titles()} />
-    <meta property="og:description" content={descriptionContents()} />
-    <meta property="og:site_name" content="トビリシバーガー" />
-    <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/hamburger-shop-45f18.appspot.com/o/images%2Fhamburger-shop.png?alt=media&token=44b92581-10ac-4b01-9acf-07648735e6d3" />
+    <meta property="og:title" content="ジョージア人気レストランバー第一位獲得|トビリシバーガー" />
+    <meta property="og:description" content="ジョージアで人気ナンバー１に輝いた幻のジョージア牛を使用したハンバーガーショップ、トビリシバーガー！バトゥミやカヘティ地方で取れた新鮮な野菜を使用した１００％ジョージア産のハンバーガー。" />
+    <meta property="og:site_name" content="トビリシの人気料理店|トビリシバーガー" />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content={String(imgWidth)} />
+    <meta property="og:image:height" content={String(imgHeight)} />
     </Head>
   )   
 }
