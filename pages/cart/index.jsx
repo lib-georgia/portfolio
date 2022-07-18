@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import Styles from './cart.module.scss';
-import LoadStyles from '../../components/Uikit/styles/Loading.module.scss';
+import LoadStyles from '../../components/Kit/styles/Loading.module.scss';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { db } from '../../firebaseApp';
 import {loadStripe} from "@stripe/stripe-js/pure";

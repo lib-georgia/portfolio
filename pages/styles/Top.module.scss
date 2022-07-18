@@ -17,10 +17,18 @@
     }
     .toCart{
         float:right;
+        background:rgba(255,255,255,0.6);
+        border-radius: 25px;
+        p{
+            color: #fff;
+            margin:0;
+            font-size:14px;
+            font-weight:bold;
+        }
         .cartIcon{
-            width: 35px;
-            height: 35px;
-            color: #000;
+            width: 30px;
+            height: 30px;
+            color: #111;
         }
     }
 }
@@ -42,10 +50,12 @@
     }
     .toCart{
         float:right;
+        background:rgba(255,255,255,0.5);
+        border-radius: 25px;
         .cartIcon{
-            width: 35px;
-            height: 35px;
-            color: #000;
+            width: 30px;
+            height: 30px;
+            color: #111;
         }
     }
 }

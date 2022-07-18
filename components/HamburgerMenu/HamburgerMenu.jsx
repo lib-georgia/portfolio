@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Style from './styles/Hamburger.module.scss'
+import Style from './Hamburger.module.scss'
 import Image from 'next/image'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
-import Counter from './Uikit/Counter'
+import Counter from '../Kit/Counter'
 
 const HamburgerMenu = (props) => {
   let { burgerProduct, hamburgerCounter,handleClick,id } = props

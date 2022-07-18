@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Thumbnail from '../assets/images/thumbnail_img.jpg'
 
 const HeadSettings = (props) => {
   const { router } = props

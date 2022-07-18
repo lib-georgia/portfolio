@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import Router from 'next/router'
-import { AuthProvider } from './AuthContext';
+import { AuthProvider } from '../AuthContext';
 import firebase from 'firebase/compat/app';
-import Sidebar from './Sidebar';
-import Styles from './styles/Dashboard.module.scss';
+import Sidebar from '../Sidebar/Sidebar';
+import Styles from './Dashboard.module.scss';
 
 const DashboardLayout = ({children}) => {
     const auth = firebase.auth();

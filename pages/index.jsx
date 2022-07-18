@@ -14,7 +14,7 @@ import {getHamburgerData,getSetMenuData,getSideMenuData,getDrinkData} from '../l
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
     right: -3,
-    top: 13,
+    top: 0,
     border: `2px solid ${theme.palette.background.paper}`,
     padding: '0 4px',
   },
@@ -76,9 +76,9 @@ const Home = ({ burgerProduct, hamburgerCounter, menuProduct, setMenuCounter, si
         </div>
         <div className={styles.toCart}>
             <Link href={'/cart'}>
-                <a>
-                    <IconButton aria-label="cart">
-                        <StyledBadge badgeContent={cartItem} color="secondary">
+            <a>
+              <IconButton aria-label="cart">
+              <StyledBadge badgeContent={cartItem} color="secondary">
                             <ShoppingCartIcon className={styles.cartIcon} />
                         </StyledBadge>
                     </IconButton>

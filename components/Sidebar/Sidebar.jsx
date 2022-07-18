@@ -1,17 +1,15 @@
 import Link from 'next/link'
-import Styles from './styles/sidebar.module.scss'
+import Styles from './Sidebar.module.scss'
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import AddIcon from '@mui/icons-material/Add';
 import MovingIcon from '@mui/icons-material/Moving';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-// import { FirebaseApp } from "../firebaseApp";
 import { getAuth } from "firebase/auth";
 import Router from 'next/router';
 
 const Sidebar = () => {
-    // const auth = getAuth(FirebaseApp);
     const auth = getAuth();
     const signOut = () => {
         auth.signOut().then(() => {
