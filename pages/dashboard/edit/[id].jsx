@@ -1,10 +1,9 @@
 import { useRouter } from "next/router";
 import Image from 'next/image'
 import Styles from '../Dashboard.module.scss'
-import Sidebar from '../../../components/Sidebar'
 import Box from '@mui/material/Box'
 import React,{ useCallback, useEffect, useState } from 'react'
-import { SelectBox,TextBox } from '../../../components/Uikit'
+import { SelectBox,TextBox } from '../../../components/Kit'
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import noImage from '../../../assets/images/no-image.png'
 import { storage,db } from "../../../firebaseApp";

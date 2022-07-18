@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Style from './DrinkMenu.module.scss';
+import Style from './styles/DrinkMenu.module.scss';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Drink from '../../assets/images/cup.png'
-import Counter from '../Kit/Counter'
+import Drink from '../assets/images/cup.png'
+import Counter from './Kit/Counter'
 
 const DrinkMenu = (props) => {
     let {drinkProduct, drinkCounter,handleClick} = props;

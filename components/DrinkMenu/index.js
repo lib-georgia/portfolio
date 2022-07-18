@@ -1,1 +1,0 @@
-export { default as DrinkMenu } from './DrinkMenu';

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Style from '../SetMenu/setmenu.module.scss';
+import Style from './styles/setmenu.module.scss';
 import Image from 'next/image'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Counter from '../Kit/Counter'
+import Counter from './Kit/Counter'
 
 const SideMenu = (props) => {
     let {sideMenuProduct,sideMenuCounter,handleClick} = props;

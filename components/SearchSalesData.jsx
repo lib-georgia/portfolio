@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import Styles from '../../pages/dashboard/Dashboard.module.scss';
+import Styles from '../pages/dashboard/Dashboard.module.scss';
 import { Doughnut } from 'react-chartjs-2';
 import "chartjs-plugin-doughnut-innertext";
 

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Styles from './Sidebar.module.scss'
+import Styles from './styles/Sidebar.module.scss'
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
